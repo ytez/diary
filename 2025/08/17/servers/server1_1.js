@@ -12,10 +12,19 @@ const options = {
 //--- サーバ作成
 https.createServer(options, (req, res) => {
   let data = '';
+  let username = '';
+  let password = '';
+
+
+  urlParsed = new URL(req);
+  console.log(urlParsed);
+  data += '\n';
 
   const headers = req.headers;
-  const auth_b64 = headers['authorization'].slice('Basic '.length);
-  const [username, password] = Buffer.from(auth_b64, 'base64').toString('utf-8').split(':', 2);
+  if ('authorization' in headers) {
+    const auth_b64 = headers['authorization'].slice('Basic '.length);
+    [username, password] = Buffer.from(auth_b64, 'base64').toString('utf-8').split(':', 2);
+  }
   data += util.format('UserAgent: %s\n', headers['user-agent']);
   data += util.format('Username: %s\n', username);
   data += util.format('Password: %s\n', password);
