@@ -15,20 +15,15 @@ https.createServer(options, (req, res) => {
   let username = '';
   let password = '';
 
-
-  urlParsed = new URL(req);
-  console.log(urlParsed);
-  data += '\n';
-
   const headers = req.headers;
   if ('authorization' in headers) {
-    const auth_b64 = headers['authorization'].slice('Basic '.length);
+    const auth_b64 = headers.authorization.slice('Basic '.length);
     [username, password] = Buffer.from(auth_b64, 'base64').toString('utf-8').split(':', 2);
   }
   data += util.format('UserAgent: %s\n', headers['user-agent']);
   data += util.format('Username: %s\n', username);
   data += util.format('Password: %s\n', password);
-  data += util.format('Host: %s\n', headers['host']);
+  data += util.format('Host: %s\n', headers.host);
   
   const url_parsed = url.parse(req.url, true);
   data += util.format('Query: %s\n', url_parsed.query);
