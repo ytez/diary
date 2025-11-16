@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"markdown-preview-enhanced.breakOnSingleNewLine": false
+		"markdown-preview-enhanced.breakOnSingleNewLine": false,
+		"markdown-preview-enhanced.mathRenderingOption": "MathJax"
 	}
 }
