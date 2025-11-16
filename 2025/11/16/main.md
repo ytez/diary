@@ -52,8 +52,12 @@ $$
 記号を下記のように整理すると，
 
 $$
-\mathbf{x'} = \varphi(\mathbf{x}) \\
-\mathbf{e}_1' = \varphi(\mathbf{e}_1) \\
+\mathbf{x'} = \varphi(\mathbf{x})
+$$
+$$
+\mathbf{e}_1' = \varphi(\mathbf{e}_1)
+$$
+$$
 \mathbf{e}_2' = \varphi(\mathbf{e}_2)
 $$
 
